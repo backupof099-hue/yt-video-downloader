@@ -6,7 +6,7 @@ import yt_dlp
 # --- Flask App Setup ---
 app = Flask(__name__)
 # Secret key ab Render ke environment variable se aayega
-app.secret_key = os.environ.get('SECRET_KEY', 'local-secret-key-for-testing')
+app.secret_key = os.environ.get('SECRET_KEY', '88f70a5e5829359c38eaffbe1ff75a72cd6e9e11b5d33eef1c')
 
 # --- Core Downloader Function (Updated for Memory Streaming) ---
 def download_video_to_memory(url):
