@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YouTube Downloader</title>
+    <style>
+      body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #121212; color: #e0e0e0; text-align: center; padding: 50px 15px; }
+      .container { max-width: 700px; margin: auto; background: #1e1e1e; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+      h1 { color: #bb86fc; }
+      input[type=url] { width: 90%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #333; background: #2c2c2c; color: #fff; font-size: 16px; }
+      button { padding: 12px 25px; background-color: #03dac6; color: #000; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: background-color 0.2s; }
+      button:hover { background-color: #018786; }
+      .flash { padding: 15px; margin-bottom: 20px; background: #373737; border-left: 5px solid #bb86fc; border-radius: 5px; text-align: left; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Max Quality Downloader</h1>
+      <p>Enter YouTube link to download.</p>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="flash">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form action="/download" method="post">
+        <input type="url" name="url" placeholder="https://www.youtube.com/watch?v=..." required>
+        <br>
+        <button type="submit">Download</button>
+      </form>
+    </div>
+  </body>
+</html>
