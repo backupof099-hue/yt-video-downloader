@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: youtube-downloader-by-pranav-sharma-itz_me_pranav_sharma
+    env: python
+    plan: free # Free plan use karo
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn --worker-tmp-dir /dev/shm app:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.5
+      - key: SECRET_KEY
+        generateValue: true # Render apne aap ek secure key bana dega
